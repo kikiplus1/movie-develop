@@ -2,9 +2,9 @@ import React, { Suspense } from 'react';
 import { BrowserRouter,Route, Switch } from "react-router-dom";
 import './App.css';
 
-import LandingPage from './components//views/LandingPage/LandingPage'
-import LoginPage from './components//views/LoginPage/Loginpage'
-import RegisterPage from './components//views/RagisterPage/RegisterPage'
+import LandingPage from './components/views/LandingPage/LandingPage'
+import LoginPage from './components/views/LoginPage/Loginpage'
+import RegisterPage from './components/views/RagisterPage/RegisterPage'
 import Auth from './hoc/auth'
 import NavBar from "./components/views/NavBar/NavBar";
 import Footer from "./components/views/Footer/Footer";

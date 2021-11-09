@@ -1,7 +1,7 @@
 export const USER_SERVER = '/api/users';
 export const API_URL = 'https://api.themoviedb.org/3/';
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/'
-export const API_KEY = ""
+export const API_KEY = "4ba7fff6c946ef5c66895c2b4da8c9c2"
 
 //Sizes: w300, w780, w1280, original
 export const BACKDROP_SIZE = 'w1280'

@@ -6,6 +6,9 @@ import MainImage from '../LandingPage/Sections/MainImage';
 import MovieInfo from './Sections/MovieInfo';
 import GridCards from '../commons/GridCards';
 import Favorite from './Sections/Favorite';
+import Comments from './Sections/Comment';
+import {withRouter} from 'react-router-dom'
+import axios from 'axios';
 
 function MovieDetail(props) {
 
@@ -13,6 +16,10 @@ function MovieDetail(props) {
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts]= useState([])
     const [ActorToggle,setActorToggle] = useState(false)
+    const [CommentLists, setCommentLists] = useState([])
+    const movieVariable = {
+        movieId: movieId
+    }
 
     //Dom이 시작할때 
     useEffect(()=>{
@@ -20,6 +27,18 @@ function MovieDetail(props) {
 
         let endPointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`
         let endPointInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}`
+
+        axios.post('/api/comment/getComments', movieVariable)
+            .then(response => {
+                console.log(response)
+                if (response.data.success) {
+                    console.log('response.data.comments', response.data.comments)
+                    setCommentLists(response.data.comments)
+                } else {
+                    alert('Failed to get comments Info')
+                }
+            })
+
 
         fetch(endPointInfo)
             .then(response => response.json())
@@ -33,6 +52,7 @@ function MovieDetail(props) {
         .then(response => {
             setCasts(response.cast)
         })
+
     },[])
 
 
@@ -41,7 +61,9 @@ function MovieDetail(props) {
             setActorToggle(!ActorToggle)
         }
         
-
+        const updateComment = (newComment) => {
+            setCommentLists(CommentLists.concat(newComment))
+        }
 
 
     return (
@@ -92,12 +114,16 @@ function MovieDetail(props) {
                         ))
                         }
                     </Row>}
+
+                {/* 댓글 */}
+                <Comments movieTitle={Movie.original_title} CommentLists={CommentLists} postId={movieId} refreshFunction={updateComment} />
+
             </div>
            
         </div>
 
     
     )
+                
 }
-
-export default MovieDetail
+export default withRouter(MovieDetail)
