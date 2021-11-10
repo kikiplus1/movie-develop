@@ -41,8 +41,6 @@ function LandingPage(props) {
 
     return (
         <div style={{width:'100%', margin:'0'}}>
-
-            {/*main image,  MainMovieImage가 있으면은 backdrop_path를 가져오게 하는 표식*/}
             { MainMovieImage &&  
               <MainImage 
               image={`${IMAGE_BASE_URL}w1280${MainMovieImage.backdrop_path}`}

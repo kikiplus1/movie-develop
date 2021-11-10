@@ -3,7 +3,7 @@ import React,{useEffect,useState} from 'react'
 import "./Favorite.css?after"
 import {Button ,Popover} from 'antd'
 import {IMAGE_BASE_URL} from '../../../Config'
-function FavoritePage() {
+function FavoritePage(props) {
 
     const[Favorite,setFavorite] = useState([])
 

@@ -12,7 +12,7 @@ import axios from 'axios';
 
 function MovieDetail(props) {
 
-    let movieId = props.match.params.movieId //영화id값 가져오기(url에서)
+    let movieId = props.match.params.movieId 
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts]= useState([])
     const [ActorToggle,setActorToggle] = useState(false)
@@ -21,7 +21,7 @@ function MovieDetail(props) {
         movieId: movieId
     }
 
-    //Dom이 시작할때 
+  
     useEffect(()=>{
         
 
@@ -56,7 +56,7 @@ function MovieDetail(props) {
     },[])
 
 
-    //버튼 누를때마다 toggle
+   
         const toggleActorView = () =>{
             setActorToggle(!ActorToggle)
         }
@@ -70,7 +70,7 @@ function MovieDetail(props) {
         <div>
             {/* Header */}
             
-            {/*main image,  MainMovieImage가 있으면은 backdrop_path를 가져오게 하는 표식*/}  
+     
               <MainImage 
                 image={`${IMAGE_BASE_URL}w1280${Movie.backdrop_path}`}
                 title ={Movie.original_title}
@@ -94,7 +94,7 @@ function MovieDetail(props) {
 
                 {/* Acter Grid */}    
                 <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}>
-                    <Button onClick={toggleActorView}>Toggle Actor View </Button>
+                    <Button onClick={toggleActorView}> 출연진 보기 </Button>
                 </div>
         
 

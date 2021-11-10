@@ -10,6 +10,9 @@ import NavBar from "./components/views/NavBar/NavBar";
 import Footer from "./components/views/Footer/Footer";
 import MovieDetail from './components/views/MovieDetail/MovieDetail';
 import FavoritePage from './components/views/FavoritePage/FavoritePage';
+import PostPage from './components/views/PostPage/PostPage'
+import CreatePage  from './components/views/PostPage/CreatePage';
+import PostDetailPage from './components/views/PostPage/PostDatilPage'
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
             <Route exact path="/register" component={Auth(RegisterPage,false)} />
             <Route exact path='/movie/:movieId' component={Auth(MovieDetail,null)}/>
             <Route exact path='/favorite' component={Auth(FavoritePage,true)}/>
+            <Route exact path='/post' component={Auth(PostPage,null)}/>
+            <Route exact path='/post/createpost' component={Auth(CreatePage,true)}/>
+            <Route exact path='/post/:postId' component={Auth(PostDetailPage,null)}/>
             
           </Switch>
         </Switch>

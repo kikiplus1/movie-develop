@@ -8,7 +8,10 @@ function LeftMenu(props) {
         <a href="/">Home</a>
       </Menu.Item>
       <Menu.Item key="favorite">
-        <a href="/favorite">Favorite</a>
+        <a href="/favorite">찜하기</a>
+      </Menu.Item>
+      <Menu.Item key="post">
+        <a href="/post">게시판</a>
       </Menu.Item>
     </Menu>
   )
